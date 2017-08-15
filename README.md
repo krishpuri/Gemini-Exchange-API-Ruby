@@ -1,5 +1,5 @@
 # Gemini-Exchange-API-Ruby
-A Ruby class written to work with the Gemini Exchange API
+A simple Ruby class written to work with the Gemini Exchange API
 
 Gems Required:
 json, openssl
