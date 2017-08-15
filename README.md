@@ -2,18 +2,10 @@
 A Ruby class written to work with the Gemini Exchange 
 
 Gems Required:
-json
-
-openssl
+json, openssl
 
 Features:
-Multiple currencies
-Account balance check
-Ticker prices and volume check
-Order placement (market, limit, auction, make-or-cancel, immediate-or-cancel)
-Order cancellation
-Order history
-Active orders
+Multiple currencies, account balance check, ticker prices and volume check, order placement (market, limit, auction, make-or-cancel, immediate-or-cancel), order cancellation, order history, active orders
 
 Usage:
 See UsageExamples.rb
