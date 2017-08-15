@@ -3,6 +3,7 @@ A Ruby class written to work with the Gemini Exchange
 
 Gems Required:
 json
+
 openssl
 
 Features:
