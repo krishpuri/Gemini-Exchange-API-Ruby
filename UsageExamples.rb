@@ -9,6 +9,9 @@ api = GeminiAPI.new($apiKey, $secret, false)
 # Returns the current Bitcoin balance in the account
 puts api.get_currency_balance('BTC')
 
+# Returns the notional value of the account
+puts api.get_notional_account_value
+
 # Returns the symbols available at the Exchange as an array
 puts api.get_market_symbols.to_s
 

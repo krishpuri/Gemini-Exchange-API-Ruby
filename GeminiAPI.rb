@@ -75,13 +75,31 @@ class GeminiAPI
   # Currencies: 'BTC', 'ETH', 'USD'
   def get_currency_balance(currency)
     balances = get_available_balances()
-    puts balances
 
     for type in balances
       if (type['currency'] == currency)
-        return type['available']
+        return type['amount']
       end
     end
+  end
+
+  # Returns the notional value of the account
+  def get_notional_account_value
+    balances = get_available_balances
+    notional_value = 0.0
+
+    for type in balances
+      if type['currency'] == 'BTC'
+        notional_value += type['amount'].to_f * get_ticker_info('btcusd', 'last').to_f
+      elsif type['currency'] == 'ETH'
+        notional_value += type['amount'].to_f * get_ticker_info('ethusd', 'last').to_f
+      elsif type['currency'] == 'USD'
+        notional_value += type['amount'].to_f
+      end
+    end
+
+    return notional_value
+
   end
 
 
