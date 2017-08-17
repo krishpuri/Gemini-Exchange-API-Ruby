@@ -128,10 +128,20 @@ class GeminiAPI
       last_price = get_ticker_info(symbol, 'last').to_f
 
       # Set the price with really high limit values so that the order gets placed for sure even if the price fluctuates a little
+      if symbol == 'btcusd'
+        limitPrice = 200.0
+      elsif symbol == 'ethusd'
+        limitPrice = 30.0
+      elsif symbol == 'ethbtc'
+        limitPrice = 0.01
+      else
+        raise 'Error in place_order_at_market_price(): Invalid symbol'
+      end
+
       if transactionType == 'buy'
-        price = last_price + 200.0
+        price = last_price + limitPrice
       elsif transactionType == 'sell'
-        price = last_price - 200.0
+        price = last_price - limitPrice
       else
         raise "Error in place_order_at_market_price(): Invalid transaction type"
       end
